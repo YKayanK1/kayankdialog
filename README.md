@@ -340,17 +340,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 </code></pre>
-
----
-
-**Instruções para o GitHub `README.md`:**
-
-1.  Crie ou abra o arquivo `README.md` na raiz do seu repositório GitHub.
-2.  **Copie todo o HTML** acima e cole-o diretamente no seu arquivo `README.md`.
-3.  **Substitua os placeholders:**
-    * `caminho/para/`: Altere para o caminho real dos seus arquivos CSS e JS (ex: `dist/kayankdialog.css` ou `kayankdialog.css`).
-    * `YKayanK1` e `kayankdialog`: Na seção de "Contribuição", atualize os links para o seu usuário e nome do repositório no GitHub.
-    * `[Seu Nome ou Nome da Organização]`: Na seção de Licença, coloque seu nome ou o nome da sua organização. O ano `2025` já está preenchido, que é o ano atual.
-4.  Faça o commit e push das alterações para o GitHub.
-
-Seu `README.md` será renderizado com essa formatação e conteúdo detalhado! Boa sorte com o projeto no GitHub!
