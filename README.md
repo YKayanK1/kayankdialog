@@ -315,14 +315,12 @@ setTimeout(() =&gt; {
 // Você também pode fechar com um resultado específico, como se o usuário tivesse confirmado:
 // KayankDialog.close({ isConfirmed: true, dismiss: 'programmatic' });
 </code></pre>
-<h2 id="contribuição">Contribuição</h2>
-<p>Contribuições são bem-vindas! Sinta-se à vontade para abrir <a href="https://github.com/SEU_USUARIO/SEU_REPOSITORIO/issues">issues</a> para bugs ou sugestões, ou enviar <a href="https://github.com/SEU_USUARIO/SEU_REPOSITORIO/pulls">Pull Requests</a> com melhorias e novas funcionalidades.</p>
 
 <h2 id="licença">Licença</h2>
 <p>Este projeto está licenciado sob a Licença MIT.</p>
 <pre><code class="language-text">MIT License
 
-Copyright (c) 2025 [Seu Nome ou Nome da Organização]
+Copyright (c) 2025 [KayanK]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -351,7 +349,7 @@ SOFTWARE.
 2.  **Copie todo o HTML** acima e cole-o diretamente no seu arquivo `README.md`.
 3.  **Substitua os placeholders:**
     * `caminho/para/`: Altere para o caminho real dos seus arquivos CSS e JS (ex: `dist/kayankdialog.css` ou `kayankdialog.css`).
-    * `SEU_USUARIO` e `SEU_REPOSITORIO`: Na seção de "Contribuição", atualize os links para o seu usuário e nome do repositório no GitHub.
+    * `YKayanK1` e `kayankdialog`: Na seção de "Contribuição", atualize os links para o seu usuário e nome do repositório no GitHub.
     * `[Seu Nome ou Nome da Organização]`: Na seção de Licença, coloque seu nome ou o nome da sua organização. O ano `2025` já está preenchido, que é o ano atual.
 4.  Faça o commit e push das alterações para o GitHub.
 
