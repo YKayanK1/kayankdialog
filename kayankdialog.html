@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KayankDialog Demo</title>
+    <link rel="stylesheet" href="kayankdialog.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .kayankdialog-open { /* Estilo para o body quando o modal está aberto */
+            overflow: hidden;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo ao KayankDialog!</h1>
+    <button id="showErrorButton">Mostrar Erro</button>
+    <button id="showConfirmButton">Mostrar Confirmação</button>
+    <button id="showCustomHtml">HTML Customizado</button>
+
+    <script src="kayankdialog.js"></script>
+    <script>
+        // Exemplo de uso
+        document.getElementById('showErrorButton').addEventListener('click', () => {
+            KayankDialog.show({
+                icon: 'error',
+                title: 'Erro na Sessão',
+                text: 'Nenhuma informação de sessão encontrada no pedido. {Código de erro: SYS[216]}',
+                cancelButtonText: 'Fechar',
+                showCancelButton: true,
+                showCloseButton: false,
+                showConfirmButton: false,
+                draggable: true,
+                didOpen: (popup) => {
+                    console.log('Modal de erro foi aberto!', popup);
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    console.log('Usuário confirmou o erro.');
+                } else if (result.isDismissed) {
+                    console.log('Modal de erro foi dispensado por: ' + result.dismiss);
+                }
+            });
+        });
+
+        document.getElementById('showConfirmButton').addEventListener('click', async () => {
+            const result = await KayankDialog.show({
+                icon: 'question',
+                title: 'Você tem certeza?',
+                text: 'Esta ação não poderá ser desfeita!',
+                showCancelButton: true,
+                confirmButtonText: 'Sim, deletar!',
+                cancelButtonText: 'Não, cancelar',
+                confirmButtonColor: '#dc3545', // Vermelho para deletar
+                cancelButtonColor: '#6c757d', // Cinza para cancelar
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                didOpen: (popup) => {
+                    console.log('Modal de confirmação aberto!');
+                },
+                willClose: (popup) => {
+                    console.log('Modal de confirmação será fechado!', popup);
+                }
+            });
+
+            if (result.isConfirmed) {
+                console.log('Usuário confirmou a exclusão!');
+                // Simular uma ação após a confirmação
+                await KayankDialog.show({
+                    icon: 'success',
+                    title: 'Deletado!',
+                    text: 'Seu arquivo foi deletado.',
+                    confirmButtonText: 'OK',
+                    timer: 2000 // Exemplo de timer (ainda não implementado, mas para testes)
+                });
+            } else if (result.isCanceled) {
+                console.log('Usuário cancelou a ação.');
+            } else if (result.isDismissed) {
+                console.log('Modal de confirmação foi dispensado por: ' + result.dismiss);
+            }
+        });
+
+        document.getElementById('showCustomHtml').addEventListener('click', () => {
+            KayankDialog.show({
+                title: 'Termos e Condições',
+                html: `
+                    <p>Leia atentamente nossos <strong>Termos de Serviço</strong>.</p>
+                    <ul>
+                        <li>Item 1: Aceitação de responsabilidade.</li>
+                        <li>Item 2: Política de privacidade.</li>
+                        <li>Item 3: Direitos autorais.</li>
+                    </ul>
+                    <p>Ao clicar em "Aceitar", você concorda com tudo.</p>
+                `,
+                showConfirmButton: true,
+                confirmButtonText: 'Aceitar Termos',
+                showCancelButton: true,
+                cancelButtonText: 'Rejeitar',
+                footer: '<i>Última atualização: 05 de Julho de 2025</i>'
+            });
+        });
+
+    </script>
+</body>
+</html>
